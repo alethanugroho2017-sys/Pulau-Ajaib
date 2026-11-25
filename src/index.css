@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #0ea5e9;
+    color: #0f172a;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* 3D Extruded Title Effect */
+.title-3d-pulau {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-shadow:
+    0 3px 0 #f59e0b,
+    0 6px 0 #d97706,
+    0 9px 0 #b45309,
+    0 12px 20px rgba(15, 23, 42, 0.35);
+}
+
+.title-3d-sub {
+  font-family: var(--font-display);
+  text-shadow: 0 2px 0 rgba(15, 23, 42, 0.25);
+}
+
+/* Glossy 3D Button Bounce */
+.btn-3d {
+  position: relative;
+  transition: transform 140ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 140ms ease;
+  transform-origin: center bottom;
+}
+
+.btn-3d:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn-3d:active {
+  transform: translateY(3px) scale(0.96);
+}
+
+.btn-3d::before {
+  content: '';
+  position: absolute;
+  inset: 3px 6px auto 6px;
+  height: 38%;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+/* Gentle floating animation for HUD mascot/cards */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes wavePaw {
+  0%, 100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(16deg);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 3.4s ease-in-out infinite;
+}
+
+.animate-wave-paw {
+  transform-origin: 80% 80%;
+  animation: wavePaw 1.2s ease-in-out infinite;
+}
+
+.animate-pop-in {
+  animation: popIn 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-wave-paw,
+  .animate-pop-in {
+    animation: none !important;
+  }
+  .btn-3d:hover,
+  .btn-3d:active {
+    transform: none !important;
+  }
+}
+
+/* Clean Print Styling for Piagam Bintang Bangun Datar */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #piagam-cetak,
+  #piagam-cetak * {
+    visibility: visible !important;
+  }
+  #piagam-cetak {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 32px !important;
+    box-shadow: none !important;
+    background: #fffdf5 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

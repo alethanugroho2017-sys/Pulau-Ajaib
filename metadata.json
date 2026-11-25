@@ -1,0 +1,8 @@
+{
+  "name": "Pulau Ajaib - Geometri Bangun Datar Kelas 2 SD",
+  "description": "Media Pembelajaran Interaktif 3D Geometri Bangun Datar Kelas 2 SD bersama Kiko si Kucing Penjelajah.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
